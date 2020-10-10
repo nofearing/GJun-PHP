@@ -37,7 +37,7 @@
 
     mysqli_query($conn,$sql);
 
-    header("refresh:1;url=index.php");
+    header("refresh:1;url=index2.php");
     echo "<SCRIPT>alert('資料已新增');</SCRIPT>";
     // 注意：雙引號裡面要包單引號！！
 
