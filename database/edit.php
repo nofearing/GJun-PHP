@@ -1,10 +1,12 @@
 <?php
 require_once("conn.php");
 $id = $_GET["id"];
-$sql = "select * from students where id=" . $id;
+$sql = "SELECT * FROM students WHERE id=" . $id;
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-$skills =  explode(",", $row['skills']);
+
+$skills =  explode(",", $row['skills']); //把資料庫的字串轉為陣列
+var_dump($row);
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,7 @@ $skills =  explode(",", $row['skills']);
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form action="update.php" method="post">
+                <form action="update.php" method="POST">
                     <div class="form-group">
                         <label for="">姓名</label>
                         <input type="text" name="name" class="form-control" value="<?php echo $row["name"]; ?>">
@@ -67,16 +69,16 @@ $skills =  explode(",", $row['skills']);
                             <label for="web" class="form-check-label">網頁設計</label>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" name="skills[]" id="premiere" value="影片剪輯" class="form-check-input" <?php echo in_array("影片剪輯", $skills) ? "checked" : ""; ?>
-                            >
+                            <input type="checkbox" name="skills[]" id="premiere" value="影片剪輯" class="form-check-input" <?php echo in_array("影片剪輯", $skills) ? "checked" : ""; ?>>
                             <label for="premiere" class="form-check-label">影片剪輯</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="remark">備註</label>
-                        <textarea name="remark" id="remark" rows="6" class="form-control" value="<?php echo $row["remark"]; ?>"></textarea>
+                        <textarea name="remark" id="remark" rows="6" class="form-control"><?php echo $row["remark"]; ?>
+                        </textarea>
                     </div>
-                    <input type="hidden" name="id" value = <?php echo $row['ID'];?> >
+                    <input type="hidden" name=id value=<?php echo $row["ID"]; ?>>
                     <input type="submit" class="btn btn-primary" value="更新資料">
                     <input type="button" value="取消" class="btn btn-danger" onclick="history.back()">
                 </form>
