@@ -25,3 +25,8 @@
             return $e -> getMessage(); 
         }
     }
+
+    function logout(){
+        session_start();
+        
+    }

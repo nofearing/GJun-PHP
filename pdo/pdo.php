@@ -1,5 +1,5 @@
 <?php
-    $db_host = "localhost:3307"; //因為更改 port，所以要另外設定
+    $db_host = "localhost"; //因為更改 port，所以要另外設定
     $db_user = "admin";
     $db_pw  = "admin";
     $db_name = "php1320200916";

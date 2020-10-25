@@ -9,6 +9,7 @@
 
 <body>
     <nav>
+    <?php 
         <a href="login.php">登入</a>
         <a href="#">註冊</a>
 
